@@ -2,6 +2,9 @@
 
 let http = require('http');
 let paramServer = require('./src/config/server');
+let toolsRouter = require('./src/tools/Router');
+
+let router = new toolsRouter.Router();
 
 /**
  * Initialise le serveur web
@@ -13,33 +16,17 @@ class App {
     config = {
         server : paramServer
     };
-    tools = {};
 
     constructor() {}
-
-    /**
-     * instancie les différentes classes javascript nécessaires au démarrage du serveur
-     */
-    instantiate() {
-
-    }
 
     /**
      * lance le serveur web
      */
     launch() {
 
-        this.instantiate();
-
         let server = http.createServer(function(req, res) {
-            res.writeHead(200);
-            res.end('Salut tout le monde');
 
-            /*
-            console.log(req.url);
-            console.log(req.method);
-            console.log(req.headers);
-            */
+             router.dispatch(req, res);
 
           });
           server.listen(this.config.server.port);
