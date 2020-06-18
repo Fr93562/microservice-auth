@@ -46,23 +46,6 @@ class Filter {
     }
 
     /**
-     * vérifie si la variable entrante est un string
-     * renvoie true si c'est un string
-     * 
-     * @param {*} value : any - variable à vérifier
-     */
-    isString(value) {
-
-        let response = false;
-
-        if(typeof value === "string") {
-
-            response = true;
-        }
-        return response;
-    }
-
-    /**
      * vérifie si la variable entrante est un booléen
      * renvoie true si c'est un booléen
      * 
