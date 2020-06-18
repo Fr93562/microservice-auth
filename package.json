@@ -1,0 +1,23 @@
+{
+  "name": "authentification",
+  "version": "1.0.0",
+  "description": "microservice who manage the authentification function",
+  "main": "app",
+  "scripts": {
+    "watch": "nodemon App",
+    "test": "tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Fr93562/microservice-auth.git"
+  },
+  "keywords": [
+    "auth"
+  ],
+  "author": "François Macko",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Fr93562/microservice-auth/issues"
+  },
+  "homepage": "https://github.com/Fr93562/microservice-auth#readme"
+}
