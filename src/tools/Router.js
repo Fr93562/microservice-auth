@@ -1,7 +1,9 @@
 "use strict";
 
 let paramPaths = require('../config/paths');
+let paramError = require('../config/error');
 let toolsFilter = require('./Filter');
+
 
 /**
  * outil de gestion des routes
@@ -20,6 +22,7 @@ class Router {
     };
     paths = [];
     check = false;
+    find = false;
 
     constructor () {
 
@@ -45,9 +48,17 @@ class Router {
    
                 if (this.data.url === path.target.path && this.data.method === path.target.method) {
 
+                    this.find = true;
                     path.controller.response(req, res);
                 }
             });
+
+            if (!this.find) {
+
+                let index = this.paths.length - 1;
+                this.paths[index].controller.response(req, res);
+                //paramError.controller.response(req, res);
+            }
         }
     }
 

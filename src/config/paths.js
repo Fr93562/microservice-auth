@@ -2,6 +2,8 @@
 
 let loginSecurityController = require("../controllers/Security/Login");
 
+let notFoundController = require('../controllers/Error/NotFound');
+
 /**
  * liste des routes
  * 
@@ -18,5 +20,16 @@ module.exports = [
             body : false,
         },
         controller : new loginSecurityController.Login()
+    },
+    {
+        target : {
+            path : "/error",
+            method : "GET",
+        },
+        require : {
+            auth : false,
+            body : false,
+        },
+        controller : new notFoundController.NotFound()
     },
 ];
